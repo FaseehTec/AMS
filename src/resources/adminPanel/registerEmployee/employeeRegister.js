@@ -1,48 +1,60 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import {NavLink, useNavigate } from 'react-router-dom';
-
+import Navbar from '../src/components/navbar';
+import Sidebar from '../src/components/sidebar';
 import '../../../css/reuseable.css'
-import '../css/admin.css'
-
+import '../src/css/admin.css'
 import { useEffect } from 'react';
+
 const EmployeeRegister = () => {
   useEffect(() => {
     document.title = 'ASM | Admin';
   }, []);
-  const navigate = useNavigate();
-  function logoutButton() {
-    navigate('/',{replace:true});
-}
   return (
     <>
-      <div className="main">
-        <div className="navbar flex flex-row">
-          <div className="logo flex align-center justify-start">
-            <img src="../../image/logo_small.png" alt=""/>
+      <div className="register-employee-main">
+        <Navbar />
+        <div className="register-employee-body flex flex-row">
+          <div className="register-employee-left-sidebar flex flex-column align-center justify-center">
+            <Sidebar />
           </div>
-          <p className="welcome-text flex align-center justify-end" id="welcome_text">Welcome, Admin</p>
-          <div className="logoutbutton-div flex align-center justify-center">
-            <button className="logout" id="logout" onClick={logoutButton}><FontAwesomeIcon icon={faArrowRightFromBracket}/></button>
-          </div>
-        </div>
-        <div className="body flex flex-row">
-          <div className="admin-left-sidebar flex flex-column align-center justify-center">
-          <div className="admin-image"></div>
-          <div className="admin-control-buttons flex flex-column">
-          <ul>
-            <li className='flex align-center justify-center'><NavLink  to="/register-employee">Register Employee</NavLink></li>
-            <li className='flex align-center justify-center'><NavLink  to="/search-employee">Search Employee</NavLink></li>
-            <li className='flex align-center justify-center'><NavLink  to="/update-employee">Update Employee Data</NavLink></li>
-            <li className='flex align-center justify-center'><NavLink  to="/delete-employee">Remove Employee</NavLink></li>
-          </ul>
-          
+          <div className="register-employee-right flex flex-column align-center justify-start">
+            <h1 className='register-employee-right-main-heading'>Employee Registeration</h1>
+            <form action="" className='reg-form flex flex-column align-start justify-center'>
+              <div className="employee-reg-credentials flex flex-row align-start justify-center">
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>First Name</p>
+                  <input className="credential-input" type="text" />
+                </div>
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>Last Name</p>
+                  <input className="credential-input" type="text" />
+                </div>
+              </div>
+              <div className="employee-reg-credentials flex flex-row align-start justify-center">
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>Email</p>
+                  <input className="credential-input" type="email" />
+                </div>
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <p className='credential-label flex align-center justify-start'>Date of Birth</p>
+                  <input className="credential-input" type="date" />
+                </div>
+              </div>
+              <div className="employee-reg-credentials flex flex-row align-start justify-center">
+                <div className="employee-reg-credentials-div flex flex-row">
+                  <select >
+                    <option>Select Gender</option>
+                    <option>Marvel</option>
+                    <option>DC</option>
+                  </select>
+                </div>
+                <div className="employee-reg-credentials-div flex flex-row">
 
-          </div>
+                </div>
+              </div>
 
+            </form>
           </div>
-          <div className="admin-right"></div>
         </div>
       </div>
     </>

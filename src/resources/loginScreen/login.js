@@ -25,7 +25,7 @@ const Login = () => {
     }, []);
     return (
         <>
-        <div className="main flex align-center justify-center">
+        <div className="login-main flex align-center justify-center">
         <div className="login-div flex flex-row">
                     <div className="left"></div>
                     <div className="right flex flex-column align-center justify-center">
